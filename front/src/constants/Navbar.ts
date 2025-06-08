@@ -8,14 +8,22 @@ export const NavbarLinks: NavbarItemProps[] = [
   },
   {
     label: "Productos",
-    href: Routes.products,
+    href: Routes.product_detail,
   },
   {
     label: "Contacto",
     href: Routes.contact,
   },
   {
-    label: "Servicios",
-    href: Routes.services,
+    label: "Carrito",
+    href: Routes.cart,
+  },
+  {
+    label: "Perfil",
+    href: Routes.profile,
+  },
+  {
+    label: "Landing",
+    href: Routes.landing,
   },
 ];

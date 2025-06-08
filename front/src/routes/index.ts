@@ -1,8 +1,11 @@
 export const Routes = {
   home: "/",
   services: "/services",
-  products: "/products",
+  product_detail: "/product-detail",
   contact: "/contact",
   login: "/login",
   register: "/register",
+  profile: "/profile",
+  cart: "/cart",
+  landing: "/landing",
 };

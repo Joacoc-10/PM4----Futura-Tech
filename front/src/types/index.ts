@@ -75,3 +75,6 @@ interface RegisterDTO {
   address: string;
   phone: string;
 }
+
+type Params = Promise<{ slug: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
