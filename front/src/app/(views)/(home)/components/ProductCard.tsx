@@ -20,8 +20,11 @@ const ProductCard = ({
   return (
     <>
       <div className="flex w-[70vw] mx-auto bg-light_blue-300 border border-gray-200 rounded-lg shadow-md overflow-hidden">
-        <div className="relative w-1/3 h-auto">
-          <Link href={generateUrl(id || "default-id")}>
+        <div className=" w-1/3 h-auto">
+          <Link
+            href={generateUrl(id || "default-id")}
+            className="relative block w-full h-full"
+          >
             <Image
               fill
               src={image || "/docs/images/products/apple-watch.png"}
