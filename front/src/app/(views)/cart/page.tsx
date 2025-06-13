@@ -19,13 +19,13 @@ const CartPage = () => {
   return (
     <>
       <Container>
-        <div className="max-w-6xl mx-auto p-4 md:p-8 bg-secondary_yellow-500 rounded-lg shadow-2xl border border-primary_blue-300 mt-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-light_black-500 mb-8 text-center">
+        <div className="max-w-6xl p-4 mx-auto mt-16 border rounded-lg shadow-2xl md:p-8 animate-bg-color-change">
+          <h1 className="mb-8 text-4xl font-extrabold text-center md:text-5xl text-light_black-500">
             Carrito de Compras
           </h1>
 
-          <div className="mb-10 p-6 bg-secondary_yellow-300 rounded-lg shadow-inner border border-primary_blue-200">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary_blue-500 mb-6">
+          <div className="p-6 mb-10 border rounded-lg shadow-inner bg-secondary_yellow-300 border-primary_blue-200">
+            <h2 className="mb-6 text-2xl font-bold md:text-3xl text-primary_blue-500">
               Productos en tu Carrito:
             </h2>
             {showCartItems ? (
@@ -39,7 +39,7 @@ const CartPage = () => {
                     border border-primary_blue-200
                   "
                   >
-                    <div className="relative w-32 h-32 md:w-24 md:h-24 flex-shrink-0 mr-4 rounded-md overflow-hidden shadow-sm">
+                    <div className="relative flex-shrink-0 w-32 h-32 mr-4 overflow-hidden rounded-md shadow-sm md:w-24 md:h-24">
                       <Image
                         fill
                         src={
@@ -50,17 +50,17 @@ const CartPage = () => {
                         className="object-cover"
                       />
                     </div>
-                    <div className="flex-grow text-center md:text-left mt-4 md:mt-0">
-                      <h3 className="text-xl md:text-2xl font-semibold text-primary_blue-500 mb-1">
+                    <div className="flex-grow mt-4 text-center md:text-left md:mt-0">
+                      <h3 className="mb-1 text-xl font-semibold md:text-2xl text-primary_blue-500">
                         {product.name}
                       </h3>
-                      <p className="text-primary_blue-400 text-base mb-1">
+                      <p className="mb-1 text-base text-primary_blue-400">
                         <strong>Precio:</strong>{" "}
                         <span className="font-bold text-primary_blue-800">
                           ${product.price.toFixed(2)}
                         </span>
                       </p>
-                      <p className="text-primary_blue-400 text-sm italic">
+                      <p className="text-sm italic text-primary_blue-400">
                         <strong>Descripción:</strong>{" "}
                         {product.description.substring(0, 70)}
                         {product.description.length > 70 ? "..." : ""}
@@ -70,27 +70,27 @@ const CartPage = () => {
                 ))}
               </div>
             ) : (
-              <p className="text-lg text-primary_blue-400 text-center py-4">
+              <p className="py-4 text-lg text-center text-primary_blue-400">
                 Parece que tu carrito está vacío. ¡Explora nuestros productos!
               </p>
             )}
           </div>
-
-          <div className="p-6 bg-secondary_yellow-300 rounded-lg shadow-inner border border-primary_blue-200">
-            <h2 className="text-2xl md:text-3xl font-bold text-light_black-500 mb-6">
+          
+          <div className="p-6 border rounded-lg shadow-inner bg-secondary_yellow-400 border-primary_blue-200">
+            <h2 className="mb-6 text-2xl font-bold border-b-2 border-primary_blue-100 md:text-3xl text-light_black-500">
               Resumen del Pedido
             </h2>
-            <p className="text-2xl md:text-3xl font-semibold text-primary_blue-800 mb-8 text-center md:text-left">
-              Total:{" "}
+            <p className="mt-10 mb-4 text-2xl font-semibold text-center md:text-3xl text-primary_blue-800 md:text-center">
+              Total:
               <span className="font-extrabold text-accent_blue-500">
                 ${calculateTotal(cartItems).toFixed(2)}
               </span>
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-end">
               <Button
-                variant="default"
+                variant="light"
                 label="Completar pedido"
-                className="py-4 px-10 "
+                className="px-10 py-4"
               ></Button>
             </div>
           </div>

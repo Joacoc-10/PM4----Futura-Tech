@@ -6,11 +6,11 @@ const HomeCarrucel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/home_banner.png?updatedAt=1749415931312",
-    "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/1-Venu%203%20-%20Portada%20sin%20boton.png?updatedAt=1749415931187",
-    "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/garmin1.jpg?updatedAt=1749415931074",
     "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/67733-1-D-US-ONLY.jpg?updatedAt=1749415931007",
     "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/garmin-fenix-e-cuerpo.webp?updatedAt=1749321850529",
+    "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/macbook-pro-14-16-chip-m2-micromidi-6.jpg?updatedAt=1749837712509",
+    "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/home_banner.png?updatedAt=1749415931312",
+    "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/samsung_galaxyS23Ultra.jpg?updatedAt=1749321850476",
   ];
 
   const handleNext = () => {
@@ -40,7 +40,7 @@ const HomeCarrucel = () => {
             </div>
           ))}
         </div>
-        {/* Indicadores */}
+        
         <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2 rtl:space-x-reverse">
           {slides.map((_, index) => (
             <button
@@ -55,7 +55,8 @@ const HomeCarrucel = () => {
             ></button>
           ))}
         </div>
-        {/* Botones de navegación */}
+
+        
         <button
           type="button"
           className="absolute top-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer start-0 group focus:outline-none"

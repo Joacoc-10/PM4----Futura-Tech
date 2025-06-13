@@ -6,6 +6,10 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import FormErrorMsg from "@/components/ui/FormErrorMsg";
 import Button from "@/components/ui/Button";
+import { postRegister } from "@/app/services/auth";
+import { toast } from "react-toastify";
+import { Routes } from "@/routes";
+import { useRouter } from "next/navigation";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -26,7 +30,19 @@ const SignupSchema = Yup.object().shape({
     .required("El número de teléfono es requerido"),
 });
 
-const RegisterForm = () => (
+export interface FormDataRegister {
+  name: string;
+  password: string;
+  address: string;
+  phone: string;
+  email: string;
+}
+
+const RegisterForm = () => {
+
+ const router =  useRouter();
+  
+  return (
   <Formik
     initialValues={{
       email: "",
@@ -37,8 +53,24 @@ const RegisterForm = () => (
       confirmPassword: "",
     }}
     validationSchema={SignupSchema}
-    onSubmit={(values) => {
-      console.log(values);
+    onSubmit={ async (values) => {
+      const { confirmPassword, ...data } = values;
+      
+     try{
+      const res = await postRegister(data);
+      if(res.errors){
+        return toast.error("Error al intentar registrar el usuario");
+      } toast.success ("El usuario se creo correctamente")
+        setTimeout(() => {
+          router.replace(Routes.login)
+        }, 2100)
+     } catch ( error: any) {
+      toast.error("Error al intentar registrar el usuario");
+     } finally {
+      console.log("Usuario registrad correctamente:", data);
+      
+     }
+      
     }}
   >
     {({
@@ -163,6 +195,7 @@ const RegisterForm = () => (
       </form>
     )}
   </Formik>
-);
+)
+}
 
 export default RegisterForm;

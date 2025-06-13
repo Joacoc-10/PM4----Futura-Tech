@@ -7,6 +7,13 @@ interface ProductListProps {
 }
 
 const ProductList: FC<ProductListProps> = ({ products }) => {
+  if (!products || products.length === 0) {
+    return (
+      <div className="min-h-[45vh] text-center text-bold text-2xl mt-32">
+        <p> No hay productos disponibles.</p>
+      </div>
+    );
+  }
   return (
     <div>
       <Container>

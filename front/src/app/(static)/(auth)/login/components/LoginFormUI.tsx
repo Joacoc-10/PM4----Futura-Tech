@@ -1,19 +1,22 @@
 "use client";
 
+import { postLogin } from "@/app/services/auth";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
+import { useAuthContext } from "@/context/authContext";
 import { Routes } from "@/routes";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-interface FormDataLogin {
+export interface FormDataLogin {
   email: string;
   password: string;
 }
-
 const LoginFormUI = () => {
-  // const router = useRouter();
+  const router = useRouter();
+  const { saveUserData } = useAuthContext();
 
   const [formData, setFormData] = useState<FormDataLogin>({
     email: "",
@@ -24,6 +27,7 @@ const LoginFormUI = () => {
     password: "",
   });
   const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -41,10 +45,10 @@ const LoginFormUI = () => {
     const errors: FormDataLogin = { email: "", password: "" };
 
     if (!emailPattern.test(formData.email)) {
-      errors.email = "Ingrese un correo electrónico valido.";
+      return errors.email = "Ingrese un correo electrónico valido.";
     }
     if (formData.password.length < 8) {
-      errors.password = "La contraseña debe de tener al menos 8 caracteres.";
+     return  errors.password = "La contraseña debe de tener al menos 8 caracteres.";
     }
 
     setFormErrors(errors);
@@ -52,10 +56,30 @@ const LoginFormUI = () => {
     return !errors.email && !errors.password;
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setHasBeenSubmitted(true);
     validate();
+
+    try {
+        setLoading(true)
+      const res = await postLogin(formData);
+      if (res.errors) {
+        console.log("error", res);
+        return toast.error("Error al iniciar sesión");
+      }
+      const {user, ...data} = res.data;
+      const {credential, ...rest} = user;
+      saveUserData({...data , user: rest});
+      toast.success("Haz iniciado seión correctamente");
+      setTimeout(() => {
+        router.push(Routes.home);
+      }, 2100);
+    } catch (error: any) {
+      toast.error("Ocurrio un error al inciar sesión",error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -96,6 +120,7 @@ const LoginFormUI = () => {
               type="submit"
               className="w-full mt-auto text-lg font-extrabold hover:bg-accent_blue-600"
               label="Iniciar sesion"
+              loading={loading}
             ></Button>
           </div>
           <div className="flex justify-center mt-6">

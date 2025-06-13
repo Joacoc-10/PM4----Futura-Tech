@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <div className="min-h-screen bg-primary_blue-100 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-12 bg-primary_blue-100 sm:px-6 lg:px-8">
       <div
         className="
         max-w-5xl w-full mx-auto /* Ancho máximo y centrado automático */
@@ -15,7 +15,7 @@ const LandingPage = () => {
         border border-primary_blue-300 /* Borde sutil para definir la tarjeta */
       "
       >
-        <div className="md:w-1/2 flex items-center justify-center p-8 bg-gradient-to-br from-secondary_yellow-200 to-secondary_yellow-600">
+        <div className="flex items-center justify-center p-8 md:w-1/2 bg-gradient-to-br from-secondary_yellow-200 to-secondary_yellow-600">
           <Image
             src="https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/Iphone16pro.jpg?updatedAt=1749413376932"
             alt="iPhone 16 Pro Max"
@@ -26,22 +26,22 @@ const LandingPage = () => {
           />
         </div>
 
-        <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center text-center md:text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary_blue-700 mb-4 leading-tight">
+        <div className="flex flex-col justify-center p-8 text-center md:w-1/2 md:p-12 md:text-left">
+          <h1 className="mb-4 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl text-primary_blue-700">
             Descubre el Poder del <br className="hidden sm:inline" />
             <span className="text-accent_blue-500">iPhone 16 Pro Max</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-primary_blue-500 mb-6 max-w-md mx-auto md:mx-0">
+          <p className="max-w-md mx-auto mb-6 text-lg sm:text-xl text-primary_blue-500 md:mx-0">
             La innovación se une a la potencia. Experimenta una velocidad
             inigualable, una cámara de otro nivel y un diseño que redefine la
             elegancia.
           </p>
 
-          <ul className="text-primary_blue-600 space-y-3 mb-8 text-left max-w-sm mx-auto md:mx-0">
+          <ul className="max-w-sm mx-auto mb-8 space-y-3 text-left text-primary_blue-600 md:mx-0">
             <li className="flex items-start">
               <svg
-                className="h-6 w-6 text-accent_blue-500 mr-2 flex-shrink-0"
+                className="flex-shrink-0 w-6 h-6 mr-2 text-accent_blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -61,7 +61,7 @@ const LandingPage = () => {
 
             <li className="flex items-start">
               <svg
-                className="h-6 w-6 text-accent_blue-500 mr-2 flex-shrink-0"
+                className="flex-shrink-0 w-6 h-6 mr-2 text-accent_blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -81,7 +81,7 @@ const LandingPage = () => {
 
             <li className="flex items-start">
               <svg
-                className="h-6 w-6 text-accent_blue-500 mr-2 flex-shrink-0"
+                className="flex-shrink-0 w-6 h-6 mr-2 text-accent_blue-500"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -97,25 +97,18 @@ const LandingPage = () => {
               </span>
             </li>
           </ul>
-
+         
           <Link href="/cart">
             <button
-              className="
-              w-full md:w-auto px-10 py-4 /* Padding y ancho responsivo */
-              bg-accent_blue-500 hover:bg-accent_blue-600 /* Color de fondo del botón, usando tu accent_blue */
-              text-white font-extrabold text-xl /* Color y grosor del texto del botón */
-              rounded-full shadow-lg /* Bordes redondeados y sombra */
-              transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 /* Efecto de hover */
-              focus:outline-none focus:ring-4 focus:ring-accent_blue-300 /* Estilo de foco para accesibilidad */
-            "
+              className="w-full px-10 py-4 text-xl font-extrabold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg animate-rainbow-slide md:w-auto hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent_blue-300"
             >
               ¡Cómprarlo Ahora y Vive la Experiencia!
             </button>
           </Link>
         </div>
       </div>
-
-      <div className="mt-12 text-sm text-primary_blue-500 opacity-80 text-center">
+      {/* bg-accent_blue-500 hover:bg-accent_blue-600 */}
+      <div className="mt-12 text-sm text-center text-primary_blue-500 opacity-80">
         <p>Oferta por tiempo limitado. Consulta términos y condiciones.</p>
         <p>
           &copy; {new Date().getFullYear()} Tu Empresa de Tecnología. Todos los

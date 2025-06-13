@@ -44,3 +44,55 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+@keyframes color-cycle {
+  0% {
+    background-color: #f1f2c4;
+  }
+  25% {
+    background-color: #888bbf;
+  }
+  50% {
+    background-color: #b2b2d1;
+  }
+  75% {
+    background-color: #888bbf;
+  }
+  100% {
+    background-color: #f1f2c4;
+  }
+}
+
+.animate-bg-color-change {
+  animation: color-cycle 10s ease-in-out infinite alternate;
+}
+
+
+@keyframes rainbow-slide {
+  0% {
+    background-position: 0% 0%; 
+  }
+  100% {
+    background-position: -100% 0%; 
+  }
+}
+.animate-rainbow-slide {
+  background: linear-gradient(to right,
+    #FF0000, 
+    #FF7F00, 
+    #FFFF00, 
+    #20a220, 
+    #0000FF, 
+    #4B0082, 
+    #8B00FF,  
+    #FF0000 
+    );
+
+  background-size: 300% 100%; 
+
+ 
+  animation: rainbow-slide 10s linear infinite; 
+
+ 
+  
+}

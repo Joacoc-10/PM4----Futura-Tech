@@ -27,7 +27,7 @@ export const ProfileOrders = [
         price: 699,
         stock: 10,
         image:
-          "https://www.apple.com/v/iphone-11/a/images/meta/og__f2j3dwkzna2u.png",
+          "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/Iphone%2011.jpg?updatedAt=1749331032506",
         categoryId: 1,
       },
       {
@@ -38,7 +38,7 @@ export const ProfileOrders = [
         price: 999,
         stock: 10,
         image:
-          "https://www.apple.com/v/macbook-air/a/images/meta/og__d5k62k8b4qka.png",
+          "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/macbookAir13.jpg?updatedAt=1749331032577",
         categoryId: 2,
       },
       {
@@ -49,7 +49,7 @@ export const ProfileOrders = [
         price: 799,
         stock: 10,
         image:
-          "https://www.apple.com/v/ipad-pro/a/images/meta/og__d8m6x7smkntm.png",
+          "https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/IpadPro.jpg?updatedAt=1749331032467",
         categoryId: 3,
       },
     ],

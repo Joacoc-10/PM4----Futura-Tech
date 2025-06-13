@@ -8,4 +8,5 @@ export const Routes = {
   profile: "/profile",
   cart: "/cart",
   landing: "/landing",
+  not_found: "/not-found",
 };

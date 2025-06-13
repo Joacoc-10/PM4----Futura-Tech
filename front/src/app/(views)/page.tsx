@@ -1,10 +1,19 @@
 import Container from "@/components/ui/Container";
 // import Image from "next/image";
 import ProductList from "./(home)/components/ProductList";
-import { productsSample } from "@/helpers/products";
 import HomeCarrucel from "./(home)/page";
+import { getProducts } from "../services/products";
 
-export default function Home() {
+const getData = async () => {
+  const products = await getProducts();
+  return {
+    products,
+  };
+};
+
+export default async function Home() {
+  const { products } = await getData();
+
   return (
     <>
       {/* <div className="relative h-[70vh] w-full overflow-hidden">
@@ -21,7 +30,7 @@ export default function Home() {
           <h2 className="text-[2em] font-bold my-4 text-light_black-500">
             Productos Destacados
           </h2>
-          <ProductList products={productsSample} />
+          <ProductList products={products || []} />
         </Container>
       </div>
     </>

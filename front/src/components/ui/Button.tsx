@@ -13,7 +13,7 @@ const VariantClasses: Record<ButtonVariant, string> = {
   dark: "text-white bg-light_black-500 hover:bg-light_black-300 focus:outline-none focus:ring-4 focus:ring-light_blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-light_blue-800 dark:hover:bg-light_blue-700 dark:focus:ring-light_blue-700 dark:border-light_blue-700",
 
   light:
-    "text-primary_blue-500 bg-secondary_yellow-500 border border-light_blue-300 focus:outline-none hover:bg-light_blue-100 focus:ring-4 focus:ring-light_blue-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-light_blue-800 dark:text-white dark:border-light_blue-600 dark:hover:bg-light_blue-700 dark:hover:border-light_blue-600 dark:focus:ring-light_blue-700",
+    "text-primary_blue-500 bg-secondary_yellow-500 border border-light_blue-300 focus:outline-none hover:bg-light_blue-100 focus:ring-4 focus:ring-light_blue-100 font-medium rounded-lg text-extrabold px-5 py-2.5 me-2 mb-2 dark:bg-light_blue-800 dark:text-white dark:border-light_blue-600 dark:hover:bg-light_blue-700 dark:hover:border-light_blue-600 dark:focus:ring-light_blue-700",
 
   red: "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900",
 };
@@ -21,17 +21,21 @@ const VariantClasses: Record<ButtonVariant, string> = {
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   label: string;
+  loading?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
   variant = "default",
   label,
   className,
+  loading = false,
   ...props
 }) => {
   return (
-    <button className={cs(VariantClasses[variant], className)} {...props}>
-      {label}
+    <button className={cs(VariantClasses[variant], 
+    className)} {...props}>
+      {!loading && label}
+      {loading && <span>Cargando...</span>}
     </button>
   );
 };
