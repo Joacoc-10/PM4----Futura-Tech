@@ -51,7 +51,8 @@ const LandingPage = () => {
                   clipRule="evenodd"
                 ></path>
               </svg>
-              Chip A18 Bionic:{" "}
+              Chip A18 Bionic:
+              
               <span className="font-semibold">
                 Rendimiento sin precedentes.
               </span>
@@ -107,7 +108,6 @@ const LandingPage = () => {
           </Link>
         </div>
       </div>
-      {/* bg-accent_blue-500 hover:bg-accent_blue-600 */}
       <div className="mt-12 text-sm text-center text-primary_blue-500 opacity-80">
         <p>Oferta por tiempo limitado. Consulta términos y condiciones.</p>
         <p>

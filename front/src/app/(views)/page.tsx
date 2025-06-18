@@ -1,5 +1,4 @@
 import Container from "@/components/ui/Container";
-// import Image from "next/image";
 import ProductList from "./(home)/components/ProductList";
 import HomeCarrucel from "./(home)/page";
 import { getProducts } from "../services/products";
@@ -16,14 +15,6 @@ export default async function Home() {
 
   return (
     <>
-      {/* <div className="relative h-[70vh] w-full overflow-hidden">
-        <Image
-          src="https://ik.imagekit.io/i1pxujmp5t/Proyecto%20M4%20Henry/67733-1-D-US-ONLY.jpg?updatedAt=1749415931007"
-          alt="hero"
-          fill
-          className="object-cover"
-        />
-      </div> */}
       <HomeCarrucel />
       <div>
         <Container>

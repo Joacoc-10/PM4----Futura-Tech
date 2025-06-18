@@ -1,6 +1,5 @@
 import { getProductById } from "@/app/services/products";
-import Button from "@/components/ui/Button";
-// import { productsSample } from "@/helpers/products";
+import CartAddBtn from "@/components/CartAddBtn";
 import { Routes } from "@/routes";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -12,14 +11,12 @@ export default async function ProductDetail(props: {
   const params = await props.params;
   const [id = undefined] = params.slug;
 
-  // Logica para filtrar el producto detail
   if (!id) {
     return redirect(Routes.not_found);
   }
 
   const product = await getProductById(id);
 
-  // const product = productsSample.find((product) => product.id === Number(id));
 
   if (!product) {
     return redirect(Routes.not_found);
@@ -61,11 +58,7 @@ export default async function ProductDetail(props: {
                 </span>
               </p>
               <div className="flex justify-center mt-auto">
-                <Button
-                  variant="default"
-                  label="Agregar al Carrito"
-                  className="px-12 py-3 text-secondary_yellow-500"
-                ></Button>
+               <CartAddBtn product={product}/>
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ interface ICategory {
 
   name: string;
 
-  products: IProduct[];
+  products?: IProduct[];
 }
 
 enum eStatusOrder {

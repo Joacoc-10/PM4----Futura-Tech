@@ -3,6 +3,7 @@ import cs from "classnames";
 
 type ButtonVariant = "default" | "alternative" | "dark" | "light" | "red";
 
+
 const VariantClasses: Record<ButtonVariant, string> = {
   default:
     "text-secondary_yellow-400 font-black bg-accent_blue-500 hover:bg-accent_blue-400 focus:ring-4 focus:ring-accent_blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-accent_blue-600 dark:hover:bg-accent_blue-700 focus:outline-none dark:focus:ring-accent_blue-800",
@@ -33,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button className={cs(VariantClasses[variant], 
-    className)} {...props}>
+    className, props.disabled && "opacity-50 cursos-not-allowed")} {...props}>
       {!loading && label}
       {loading && <span>Cargando...</span>}
     </button>

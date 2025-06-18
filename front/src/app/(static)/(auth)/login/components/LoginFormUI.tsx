@@ -4,6 +4,7 @@ import { postLogin } from "@/app/services/auth";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import { useAuthContext } from "@/context/authContext";
+import usePublic from "@/hooks/usePublic";
 import { Routes } from "@/routes";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,6 +16,7 @@ export interface FormDataLogin {
   password: string;
 }
 const LoginFormUI = () => {
+  usePublic();
   const router = useRouter();
   const { saveUserData } = useAuthContext();
 

@@ -1,17 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 import { Routes } from "@/routes";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
+import CartAddBtn from "@/components/CartAddBtn";
 
-const ProductCard = ({
-  name,
-  description,
-  price,
-  stock,
-  image,
-  id,
-}: Partial<IProduct>) => {
+const ProductCard: FC<Partial<IProduct>> = (product) => {
+  const {
+    name,
+    description,
+    price,
+    stock,
+    image,
+    id,
+  } = product;
   const generateUrl = (id: string | number) => {
     return `${Routes.product_detail}/${id}/${name
       ?.toLowerCase()
@@ -55,11 +56,11 @@ const ProductCard = ({
             </div>
           </div>
           <div className="flex flex-col items-start gap-2">
-            {" "}
+          
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               {price ? `$${price}` : "Precio no disponible"}
             </span>
-            <Button label="Añadir al carrito" className="w-full"></Button>
+            <CartAddBtn product={product}/>
           </div>
         </div>
       </div>

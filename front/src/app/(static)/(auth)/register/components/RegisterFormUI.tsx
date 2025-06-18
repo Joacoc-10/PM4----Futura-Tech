@@ -10,6 +10,7 @@ import { postRegister } from "@/app/services/auth";
 import { toast } from "react-toastify";
 import { Routes } from "@/routes";
 import { useRouter } from "next/navigation";
+import usePublic from "@/hooks/usePublic";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -39,7 +40,7 @@ export interface FormDataRegister {
 }
 
 const RegisterForm = () => {
-
+  usePublic();
  const router =  useRouter();
   
   return (
