@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 import ProductList from "./(home)/components/ProductList";
 import HomeCarrucel from "./(home)/page";
 import { getProducts } from "../services/products";
+import ClientLandingModal from "@/components/LandingModal";
 
 const getData = async () => {
   const products = await getProducts();
@@ -15,6 +16,7 @@ export default async function Home() {
 
   return (
     <>
+      <ClientLandingModal/>
       <HomeCarrucel />
       <div>
         <Container>

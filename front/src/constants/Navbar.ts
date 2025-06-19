@@ -22,8 +22,4 @@ export const NavbarLinks: NavbarItemProps[] = [
     label: "Contacto",
     href: Routes.contact,
   },
-  {
-    label: "Landing",
-    href: Routes.landing,
-  },
 ];

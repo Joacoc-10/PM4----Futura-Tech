@@ -10,11 +10,13 @@ import { useCartContext } from "@/context/cartContext";
 
 const AuthNav = () => {
   const { user, isAuth, resetUserData } = useAuthContext();
-  const {total} = useCartContext();
+  const {total, resetCart} = useCartContext();
   console.log("user", user);
 
   const logout = () => {
     resetUserData();
+    resetCart();
+  
 
     location.href = Routes.home;
   };

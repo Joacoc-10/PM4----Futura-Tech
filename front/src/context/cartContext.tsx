@@ -13,6 +13,7 @@ type CartContextType = {
   removeFromCart: (productId: number) => void;
   isProductInCart: (productId: number) => boolean;
   resetCart: () => void;
+  // resetLocalStorageCart: () => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -54,6 +55,11 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.removeItem(CART_LOCAL_STORAGE_KEY);
     localStorage.removeItem(CART_TOTAL_LOCAL_STORAGE_KEY);
   }
+
+  // const resetLocalStorageCart = () => {
+  //   localStorage.removeItem(CART_LOCAL_STORAGE_KEY);
+  //   localStorage.removeItem(CART_TOTAL_LOCAL_STORAGE_KEY);
+  // }
 
   const isProductInCart = (productId: number) => {
     return cart ? cart.some((item) => item.id === productId) : false;
@@ -104,6 +110,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
           removeFromCart,
           isProductInCart,
           resetCart,
+          // resetLocalStorageCart,
         }
       }
     >

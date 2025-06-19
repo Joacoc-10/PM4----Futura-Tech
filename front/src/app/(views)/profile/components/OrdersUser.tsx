@@ -25,22 +25,23 @@ const OrdersUser = () => {
       }
     };
     res();
-  },[])
+  },[token,router])
+  
   if( orders === null) {
-    return <p>Cargando ordenes...</p>
+    return <p className="py-4 text-lg text-center text-primary_blue-400">Cargando ordenes...</p>
   }
   
   return (
     <>
       {orders.length > 0 ? (
         <div className="space-y-6">
-          {orders.map((order) => (
+          {orders.slice().reverse().map((order, index) => (
             <div
               key={order.id}
               className="p-4 border rounded-md shadow-sm bg-light_blue-300 border-light_blue-400"
             >
               <h3 className="mb-2 text-xl font-semibold md:text-2xl text-primary_blue-600">
-                Orden #{order.id}
+                Orden #{orders.length - index}
               </h3>
               <p className="mb-1 text-base text-primary_blue-500">
                 <strong className="text-accent_blue-500">Estado:</strong>

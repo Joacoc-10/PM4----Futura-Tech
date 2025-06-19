@@ -71,12 +71,12 @@ const RenderProducts = () => {
       )}
 
       <GenericPortal containerId="total-container">
-        <p className="mt-10 mb-4 text-2xl font-semibold text-center md:text-3xl text-primary_blue-800 md:text-center">
+        <div className="mt-10 mb-4 text-2xl font-semibold text-center md:text-3xl text-primary_blue-800 md:text-center">
           Total:
           <p className="font-extrabold text-accent_blue-500">
             ${priceTotal.toFixed(2)}
           </p>
-        </p>
+        </div>
       </GenericPortal>
     </>
   );

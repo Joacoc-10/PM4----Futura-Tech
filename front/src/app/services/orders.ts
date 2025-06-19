@@ -10,7 +10,7 @@ export const getOrdersUser = async (token: string) => {
   try{
     const response = await axiosApiBack.get("/users/orders", {
       headers: {
-        Authorization: token,                //Objeto options para la peticion
+        Authorization: token,               
       },
     });
     return response.data;

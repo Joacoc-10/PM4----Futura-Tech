@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-12 bg-primary_blue-100 sm:px-6 lg:px-8">
+    <>    
       <div
         className="
         max-w-5xl w-full mx-auto /* Ancho máximo y centrado automático */
@@ -99,7 +99,7 @@ const LandingPage = () => {
             </li>
           </ul>
          
-          <Link href="/cart">
+          <Link href="/product-detail/16/iphone-16-pro-max">
             <button
               className="w-full px-10 py-4 text-xl font-extrabold text-white transition duration-300 ease-in-out transform rounded-full shadow-lg animate-rainbow-slide md:w-auto hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-accent_blue-300"
             >
@@ -108,14 +108,9 @@ const LandingPage = () => {
           </Link>
         </div>
       </div>
-      <div className="mt-12 text-sm text-center text-primary_blue-500 opacity-80">
-        <p>Oferta por tiempo limitado. Consulta términos y condiciones.</p>
-        <p>
-          &copy; {new Date().getFullYear()} Tu Empresa de Tecnología. Todos los
-          derechos reservados.
-        </p>
-      </div>
-    </div>
+     
+    </>
+
   );
 };
 
