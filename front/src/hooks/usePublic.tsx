@@ -12,7 +12,7 @@ const usePublic = () => {
     if (isAuth) {
       router.push(Routes.home);
     }
-  }, [isAuth]);
+  }, [isAuth, router]);
 
   return null;
 };

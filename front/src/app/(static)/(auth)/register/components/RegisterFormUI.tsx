@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { Routes } from "@/routes";
 import { useRouter } from "next/navigation";
 import usePublic from "@/hooks/usePublic";
+import { AxiosError } from "axios";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -55,7 +56,7 @@ const RegisterForm = () => {
     }}
     validationSchema={SignupSchema}
     onSubmit={ async (values) => {
-      const { confirmPassword, ...data } = values;
+      const {  ...data } = values;
       
      try{
       const res = await postRegister(data);
@@ -65,8 +66,12 @@ const RegisterForm = () => {
         setTimeout(() => {
           router.replace(Routes.login)
         }, 2100)
-     } catch ( error: any) {
-      toast.error("Error al intentar registrar el usuario");
+     } catch ( error: unknown) {
+      if (error instanceof AxiosError) {
+        const serverMessage = error.response?.data?.message || "Error de red o del servidor";
+        console.error("Error de Axios al registrar:", error.response?.data || error.message);
+        toast.error(`Error al registrar: ${serverMessage}`);
+      } 
      } finally {
       console.log("Usuario registrad correctamente:", data);
       

@@ -71,14 +71,20 @@ const LoginFormUI = () => {
         return toast.error("Error al iniciar sesión");
       }
       const {user, ...data} = res.data;
-      const {credential, ...rest} = user;
+      const { ...rest } = user;
       saveUserData({...data , user: rest});
       toast.success("Haz iniciado seión correctamente");
       setTimeout(() => {
         router.push(Routes.home);
       }, 2100);
-    } catch (error: any) {
-      toast.error("Ocurrio un error al inciar sesión",error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(`Ocurrió un error al iniciar sesión: ${error.message}`);
+        console.warn("Login error:", error); 
+      } else {
+        toast.error("Ocurrió un error al iniciar sesión.");
+        console.warn("Error desconocido durante el login:", error);
+      }
     } finally {
       setLoading(false);
     }
@@ -116,7 +122,6 @@ const LoginFormUI = () => {
             inputClassName="bg-light_blue-300 py-2 px-4"
             labelClassName="text-lg font-extrabold text-secondary_yellow-500"
           />
-          {/* <div className="flex flex-col items-center justify-center"> */}
           <div>
             <Button
               type="submit"
@@ -133,7 +138,6 @@ const LoginFormUI = () => {
               ¿Aún no te has registrado? Registrate!
             </Link>
           </div>
-          {/* </div> */}
         </form>
       </div>
     </>

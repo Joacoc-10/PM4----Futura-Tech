@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 
 const HomeCarrucel = () => {
@@ -32,10 +33,13 @@ const HomeCarrucel = () => {
                 index === currentSlide ? "opacity-100" : "opacity-0"
               }`}
             >
-              <img
+              <Image
                 src={slide}
                 className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 alt={`Slide ${index + 1}`}
+                width={1920}
+                height={1080}
+                priority
               />
             </div>
           ))}

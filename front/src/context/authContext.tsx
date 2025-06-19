@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
    
-    const storageType = storage as any;
+    const storageType = storage as SaveUserPayload;
     setUser(storage?.user);
     setIsAuth(storage?.login);
     setToken(storageType?.token);

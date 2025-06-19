@@ -12,7 +12,7 @@ const usePrivate = () => {
     if (isAuth === false) {
       router.push(Routes.home);
     }
-  }, [isAuth] );
+  }, [isAuth, router] );
   return null;
 
 }

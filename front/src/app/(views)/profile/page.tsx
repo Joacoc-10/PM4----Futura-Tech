@@ -1,10 +1,8 @@
-import { ProfileOrders } from "@/helpers/ProfileRes";
 import React from "react";
 import DataUser from "./components/DataUser";
 import OrdersUser from "./components/OrdersUser";
 
 const ProfilePage = () => {
-  const orders = ProfileOrders;
 
   return (
     <>

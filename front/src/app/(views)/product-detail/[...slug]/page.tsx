@@ -1,6 +1,7 @@
 import { getProductById } from "@/app/services/products";
 import CartAddBtn from "@/components/CartAddBtn";
 import { Routes } from "@/routes";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -27,9 +28,12 @@ export default async function ProductDetail(props: {
       <div className="flex items-center justify-center min-h-screen p-4 bg-primary_blue-100">
         <div className="flex flex-col max-w-4xl mx-auto overflow-hidden transition-transform duration-300 transform border rounded-lg shadow-2xl bg-secondary_yellow-500 border-primary_blue-300 md:flex-row hover:scale-105">
           <div className="flex-shrink-0 md:w-1/2">
-            <img
+      
+             <Image
               src={product.image}
               alt={product.name}
+              width={500}
+              height={300} 
               className="object-cover w-full h-64 rounded-t-lg shadow-md md:h-full md:rounded-l-lg md:rounded-tr-none"
             />
           </div>

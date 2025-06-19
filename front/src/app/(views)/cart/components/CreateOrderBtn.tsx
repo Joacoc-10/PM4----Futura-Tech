@@ -8,6 +8,7 @@ import usePrivate from "@/hooks/usePrivate";
 import Swal from "sweetalert2";
 import { postOrder } from "@/app/services/orders";
 import { useRouter } from "next/navigation";
+import { AxiosError } from "axios";
 
 
 export interface CreateOrderPayload {
@@ -71,13 +72,22 @@ const CreateOrderBtn: React.FC = () => {
 
         router.push(`/profile`);
 
-      } catch (error: any) {
-        console.error("Error al crear la orden:", error);
-        Swal.fire({
-          icon: 'error',
-          title: 'Error al procesar la compra',
-          text: error.response?.data?.message || 'Hubo un problema al crear tu orden. Por favor, inténtalo de nuevo.',
-        });
+      } catch (error: unknown) { 
+        if (error instanceof AxiosError) {
+          console.error("Error de Axios al crear la orden:", error.response?.data || error.message);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al procesar la compra',
+            text: error.response?.data?.message || 'Hubo un problema al crear tu orden. Por favor, inténtalo de nuevo.',
+          });
+        } else if (error instanceof Error) {
+          console.error("Error al crear la orden:", error.message);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error al procesar la compra',
+            text: `Hubo un problema al crear tu orden: ${error.message}. Por favor, inténtalo de nuevo.`,
+          });
+        } 
       } finally {
         setIsCreatingOrder(false);
       }

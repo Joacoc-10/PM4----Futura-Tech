@@ -1,4 +1,6 @@
-interface ICategory {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
+ interface ICategory {
   id: number;
 
   name: string;
@@ -12,7 +14,7 @@ enum eStatusOrder {
   REJECTED = "rejected",
 }
 
-interface IOrder {
+ interface IOrder {
   id: number;
 
   status: eStatusOrder;
@@ -24,7 +26,7 @@ interface IOrder {
   products: IProduct[];
 }
 
-interface IProduct {
+ interface IProduct {
   id: number;
 
   name: string;
@@ -47,7 +49,7 @@ enum eRole {
   USER = "user",
 }
 
-interface IUser {
+ interface IUser {
   id: number;
 
   name: string;
@@ -63,12 +65,12 @@ interface IUser {
   // credetnials & orders
 }
 
-interface LoginDTO {
+ interface LoginDTO {
   email: string;
   password: string;
 }
 
-interface RegisterDTO {
+ interface RegisterDTO {
   email: string;
   password: string;
   name: string;
@@ -76,5 +78,5 @@ interface RegisterDTO {
   phone: string;
 }
 
-type Params = Promise<{ slug: string }>;
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+ type Params = Promise<{ slug: string }>;
+ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
