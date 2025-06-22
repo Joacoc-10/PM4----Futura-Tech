@@ -73,7 +73,7 @@ const RegisterForm = () => {
         toast.error(`Error al registrar: ${serverMessage}`);
       } 
      } finally {
-      console.log("Usuario registrad correctamente:", data);
+      console.log("Usuario registrado correctamente:", data);
       
      }
       
