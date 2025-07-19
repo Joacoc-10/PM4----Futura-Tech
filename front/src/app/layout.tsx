@@ -6,7 +6,6 @@ import { Bounce, ToastContainer } from "react-toastify";
 import { AuthProvider } from "@/context/authContext";
 import { CartProvider } from "@/context/cartContext";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="../public/Frame.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="../public/Frame.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="../public/Frame.png"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/Frame.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/Frame.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/Frame.png" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AuthProvider>
