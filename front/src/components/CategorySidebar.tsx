@@ -16,14 +16,14 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({
 
   return (
     <div className="w-1/4 pr-4 border-r border-primary_blue-200">
-      <h1 className="mb-6 text-3xl font-extrabold text-gray-800 border-b border-primary_blue-200">Categorías</h1>
+      <h1 className="mb-6 font-extrabold text-gray-800 border-b lg:text-3xl border-primary_blue-200">Categorías</h1>
 
       <div
         className={`
           cursor-pointer
           py-3 px-4
           mb-2
-          text-lg
+          lg:text-lg
           rounded-lg
           border-2
           border-transparent
@@ -53,7 +53,7 @@ const CategorySidebar: React.FC<CategorySidebarProps> = ({
             cursor-pointer
             py-3 px-4
             mb-2
-            text-lg
+            lg:text-lg
             rounded-lg
             border-2
             border-transparent
