@@ -12,6 +12,7 @@ type AuthContextType = {
   user: IUser | null;
   token?: string | null;
   isAuth: boolean | null;
+  isAuthReady: boolean;
 
   //Actions
   saveUserData: (data:SaveUserPayload) => void;
@@ -26,6 +27,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<AuthContextType["user"]>(null);
   const [token, setToken] = useState<string | null>(null);
   const [isAuth, setIsAuth] = useState<AuthContextType["isAuth"]>(null);
+  const [isAuthReady, setIsAuthReady] = useState<boolean>(false);
   
   const saveUserData = (data:SaveUserPayload) => {
     setUser(data.user)
@@ -49,6 +51,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const storage = JSON.parse(localStorage.getItem(USER_LOCAL_KEY) || '{}')
     if(storage === undefined || !Object.keys(storage)?.length) {
       setIsAuth(false);
+      setIsAuthReady(true);    
       return;
     }
    
@@ -56,6 +59,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser(storage?.user);
     setIsAuth(storage?.login);
     setToken(storageType?.token);
+    setIsAuthReady(true);
   }, [] );
 
 
@@ -64,6 +68,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       user, 
       token, 
       isAuth,
+      isAuthReady,
       saveUserData,
       resetUserData 
       }}> {children}

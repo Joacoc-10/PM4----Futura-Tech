@@ -1,18 +1,17 @@
 "use client";
 import { useAuthContext } from "@/context/authContext";
 import usePrivate from "@/hooks/usePrivate";
-import { Routes } from "@/routes";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 const DataUser = () => {
-  usePrivate();
+  const {isAuthReady} = usePrivate();
   const { user } = useAuthContext();
-  const router = useRouter();
 
+  if (!isAuthReady){
+    return <p className="py-4 text-center"> Cargando... </p>
+  }
   if (!user) {
-    router.push(Routes.home);
-    return null;
+    return <p className="py-4 text-center">Datos de usuario no disponibles.</p>
   }
 
   return (

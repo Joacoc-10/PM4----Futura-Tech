@@ -5,15 +5,16 @@ import { useRouter } from "next/navigation";
 import  { useEffect } from "react";
 
 const usePrivate = () => {
-  const { isAuth } = useAuthContext();
+  const { isAuth, isAuthReady } = useAuthContext();
   const router = useRouter();
 
   useEffect( () => {
-    if (isAuth === false) {
+    if (isAuthReady && isAuth === false) {
       router.push(Routes.home);
     }
-  }, [isAuth, router] );
-  return null;
+  }, [isAuth, isAuthReady ,router] );
+  
+  return {isAuthReady};
 
 }
 

@@ -18,12 +18,30 @@ export interface CreateOrderPayload {
 
 const CreateOrderBtn: React.FC = () => {
   const router = useRouter();
-  usePrivate(); 
+  const {isAuthReady} = usePrivate(); 
   const { user, token } = useAuthContext(); 
   const { cart, resetCart } = useCartContext(); 
 
   const [isCreatingOrder, setIsCreatingOrder] = useState(false);
 
+
+   if (!isAuthReady) {
+    return (
+      <Button
+        variant="light"
+        label="Cargando..."
+        className="px-10 py-4"
+        disabled={true} 
+        loading={true} 
+      />
+    );
+  }
+
+  if (!user || !token) {
+    return null;
+  }
+  
+  
   const handleCreateOrder = async () => {
     setIsCreatingOrder(true);
 
