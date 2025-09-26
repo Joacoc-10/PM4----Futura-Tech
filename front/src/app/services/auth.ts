@@ -4,7 +4,7 @@ import { FormDataRegister } from "../(static)/(auth)/register/components/Registe
 import { FormDataLogin } from "../(static)/(auth)/login/components/LoginFormUI";
 
 const axiosApiBack = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
 export const postRegister = async (data: FormDataRegister) => {
@@ -31,7 +31,6 @@ export const postRegister = async (data: FormDataRegister) => {
   }
 };
 
-
 export const postLogin = async (data: FormDataLogin) => {
   try {
     const res = await axiosApiBack.post("/users/login", data);
@@ -44,7 +43,7 @@ export const postLogin = async (data: FormDataLogin) => {
     }
     return {
       message: "Inicio de sesión exitoso",
-      data: res.data
+      data: res.data,
     };
   } catch (error: unknown) {
     if (error instanceof Error) {
